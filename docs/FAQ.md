@@ -19,6 +19,9 @@
 
 链接uuid不要求账号间使用同一个用户名
 
+## 怎样更换皮肤
+答: 在账号的对应渠道更换。基岩版直接在游戏内更换，Java版正版请在[minecraft.net](https://www.minecraft.net)登录自己的账号进行更改，LittleSkin账户请在LittleSkin后台更换
+
 ## 为什么我在LittleSkin上设置的皮肤在服务器内不显示
 答: Minecraft原版只支持`64x64`分辨率的皮肤，而皮肤站可以上传`128x128`等其他分辨率的皮肤材质
 
