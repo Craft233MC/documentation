@@ -17,19 +17,5 @@ hero:
     - theme: alt
       text: 返回主站
       link: https://www.craft233.top
-
-# features:
-#   - title: 通用
-#     details: 存在于代理端上的东西，应该可以在任何地方使用
-#     link: ./leaves/guides/getting-started
-#     linkText: '开始阅读'
-#   - title: Terra
-#     details: 生存服Terra的文档，应该只用于Terra服务器中
-#     link: ./leaves/guides/getting-started
-#     linkText: '开始阅读'
-#   - title: ABlock
-#     details: 单方快生存ABlock的文档，应该只用于ABlock服务器中
-#     link: ./leaves/guides/getting-started
-#     linkText: '开始阅读' 
 ---
 

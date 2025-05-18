@@ -7,6 +7,8 @@
 
 - [基岩版玩家支持](commandAndFunctions/bedrockPlayerSupport)
 
+- [单方块生存](commandAndFunctions/oneblock)
+
 - [CoreProtect](commandAndFunctions/coreProtect)
 
 - [GSit](commandAndFunctions/gsit)

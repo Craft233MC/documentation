@@ -3,6 +3,8 @@ Light系列插件是Craft233自主编写的工具类轻量插件，以满足Craf
 
 同时，Light系插件完全兼容Paper及Folia平台，且保持开源
 
+适用子服务器: `Terra`, `ABlock`
+
 ## LightSuicide
 用于结束玩家生命，立即回到出生点(不死图腾无效)
 

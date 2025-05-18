@@ -44,6 +44,7 @@ export default defineConfig({
           { text: '杂项', link: getPath('/commandAndFunctions/chore') },
           { text: '高级成就', link: getPath('/commandAndFunctions/advancedAchievements') },
           { text: '基岩版玩家支持', link: getPath('/commandAndFunctions/bedrockPlayerSupport') },
+          { text: '单方块生存', link: getPath('/commandAndFunctions/oneblock') },
           { text: 'CoreProtect', link: getPath('/commandAndFunctions/coreProtect') },
           { text: 'GSit', link: getPath('/commandAndFunctions/gsit') },
           { text: 'HuskHomes家', link: getPath('/commandAndFunctions/huskHomes') },
