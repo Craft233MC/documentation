@@ -18,3 +18,13 @@ Light系列插件是Craft233自主编写的工具类轻量插件，以满足Craf
 连锁需要可挖掘(会掉物品)和足够耐久度时才会生效
 
 用法: `/lcb toggle` 切换连锁破坏开关
+
+可以切换`是否显示连锁数量`, `是否要求蹲下才启用`, `是否防止物品损坏`
+
+切换指令分别为:
+
+- `/lcb toggle display-count`  是否显示连锁数量
+
+- `/lcb toggle item-protective`   是否防止物品损坏
+
+- `/lcb toggle sneak-enable`   是否要求蹲下才启用
