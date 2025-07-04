@@ -29,4 +29,6 @@
 
 - [服务器商店](commandAndFunctions/shop)
 
+- [AllMusic全局点歌](commandAndFunctions/allMusic)
+
 ## [常见问题🤔](FAQ)

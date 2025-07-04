@@ -51,6 +51,7 @@ export default defineConfig({
           { text: 'QuickShop箱子商店', link: getPath('/commandAndFunctions/quickShop') },
           { text: 'Light系插件', link: getPath('/commandAndFunctions/lightPlugins') },
           { text: '服务器商店', link: getPath('/commandAndFunctions/shop') },
+          { text: 'AllMusic全局点歌', link: getPath('/commandAndFunctions/allMusic') },
         ]
       },
       {

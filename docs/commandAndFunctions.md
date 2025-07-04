@@ -20,3 +20,5 @@
 - [Light系插件](commandAndFunctions/lightPlugins)
 
 - [服务器商店](commandAndFunctions/shop)
+
+- [AllMusic全局点歌](commandAndFunctions/allMusic)
