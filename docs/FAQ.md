@@ -26,3 +26,24 @@
 答: Minecraft原版只支持`64x64`分辨率的皮肤，而皮肤站可以上传`128x128`等其他分辨率的皮肤材质
 
 请尝试更换其他皮肤
+
+## 正版账号在登录时无法进入
+如果显示`登入失效: 无效的会话(请尝试重启你的游戏)`，请尝试退出游戏，然后在启动器内`刷新账户`，然后再次尝试登录
+
+如果出现如下的一些问题:
+- `身份验证服务器目前处于宕机状态。请稍候再试，抱歉！`
+- `暂时无法连接到认证服务器，请稍候再试。`
+- `Error occourred while contacting login servers, are they down?`
+
+先不要急，这不是Craft233服务器出问题了，而是微软认证服务器由于一些因素又双叒叕抽风了
+
+您可以尝试:
+- 多次尝试登录
+- 手动更改DNS解析
+- 使用游戏加速器
+或使用我们的代理节点
+
+如果要使用我们的代理节点，请在启动器的`Java参数`或者叫`JVM参数头`中添加以下内容
+```
+-Dminecraft.api.account.host=https://account.bugjump.neokoni.ink -Dminecraft.api.session.host=https://session.bugjump.neokoni.ink -Dminecraft.api.services.host=https://services.bugjump.neokoni.ink
+```
