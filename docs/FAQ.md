@@ -47,3 +47,6 @@
 ```
 -Dminecraft.api.account.host=https://account.bugjump.neokoni.ink -Dminecraft.api.session.host=https://session.bugjump.neokoni.ink -Dminecraft.api.services.host=https://services.bugjump.neokoni.ink
 ```
+::: warning
+非正版登录玩家请不要添加，修改验证服务器api会导致外置登录失败
+:::
