@@ -16,6 +16,6 @@ hero:
       link: /docs
     - theme: alt
       text: 返回主站
-      link: https://www.craft233.top
+      link: https://www.craft233.cn
 ---
 

@@ -64,7 +64,7 @@ export default defineConfig({
     footer: {
       copyright: '© 2023-2025 Craft233. All rights reserved.',
       message: `<a href="https://icp.gov.moe/?keyword=20232336" target="_blank">萌ICP备20232336号</a><br>
-                <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2024074700号-1</a><br>
+                <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2024074700号-4</a><br>
                 <a href="https://beian.mps.gov.cn/#/query/webSearch?code=51130402000151" target="_blank">川公网安备51130402000151号</a>`
     },
 
