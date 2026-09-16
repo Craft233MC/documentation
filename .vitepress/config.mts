@@ -12,7 +12,7 @@ export default defineConfig({
   head: [['link', { rel: 'icon', href: 'https://res.neokoni.ink/craft233/img/craft233_logo_64.png' }]],
   outDir: 'dist',
   sitemap: {
-    hostname: 'https://example.com'
+    hostname: 'https://docs.craft233.cn'
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
