@@ -1,79 +1,81 @@
-# 常用杂项
-一些杂项命令或功能的介绍
+---
+order: 10
+---
 
-## 菜单
-使用命令打开服务器内菜单，而不是使用物品激活
+# 杂项功能
 
-适用子服务器: `Terra`, `ABlock`
+## 坐下与动作
 
-用法: `/menu`, `/cd`
-## 切换服务器
-使用命令切换服务器或打开服务器切换菜单
+`GSit` 提供坐下、躺下、爬行等动作。
 
-适用子服务器: `Lobby`, `Terra`, `ABlock`
+适用子服务器：`Lobby`、`Lights`
 
-用法: 
+- `/sit`、`/gsit` 坐下
+- `/lay`、`/glay` 躺下
+- `/bellyflop`、`/gbellyflop` 趴下
+- `/spin`、`/gspin` 旋转
+- `/crawl`、`/gcrawl` 爬行
 
-- `/server <服务器名>` 使用代理端命令切换服务器
+再次执行对应指令或移动可起身。
 
-- `/servers` 打开服务器切换菜单
+## 方块查询
 
-## 服务器人数及分布
-使用命令查询服务器的总人数及各自分布情况
+`CoreProtect` 记录方块与容器操作。
 
-适用子服务器: `Lobby`, `Terra`, `ABlock`
+适用子服务器：`Lights`
 
-用法: 
+- `/co i` 切换查询模式
+- `/co` 显示帮助
 
-- `/glist all` 全服信息查看
+开启查询模式后点击方块，查看该位置的交互记录。
 
-- `/geyser list` 查看在线的基岩版玩家
+## 帽子
 
-## 私信玩家
-像某玩家发出单独的消息，仅自己和对方可以查看
+`Hat` 将手持物品戴到头部。
 
-适用子服务器: `Lobby`, `Terra`, `ABlock`
+适用子服务器：`Lights`
 
-用法: `/msg <玩家名> <聊天内容>`
+- `/hat` 将手持物品设为头盔
 
-## 聊天展示物品
-在聊天中展示手持物品，背包，末影箱
-::: info
-此特性仅Java版可以查看展示的物品支持
-:::
+## 史莱姆区块
 
-适用子服务器: `Lobby`, `Terra`, `ABlock`
+`GreenChunk` 用于查询史莱姆区块。
 
-用法:
-- 在聊天中加入`[i]`展示手持物品
+适用子服务器：`Lights`
 
-- 在聊天中加入`[inv]`展示背包
+- `/slime` 查询当前区块是否为史莱姆区块
+- `/slimemap` 打开附近的史莱姆区块地图
 
-- 在聊天中加入`[end]`展示末影箱
+## 本地时间与天气
 
-## @玩家
-适用子服务器: `Lobby`, `Terra`, `ABlock`
+`Scene4U` 为单个玩家设置客户端时间与天气，不影响服务器环境与其他玩家。
 
-用法: 
-- `@<玩家名>` @特定玩家
+适用子服务器：`Lights`
 
-- `@所有人` @所有玩家
+- `/scene set <clear|downfall|day|midnight|night|noon>`
+- `/scene set <游戏刻>` 设置为指定时间刻
+- `/scene clear` 恢复服务器默认时间与天气
+- `/scene help` 显示帮助
 
-## 消息字体颜色
-适用子服务器: `Lobby`, `Terra`, `ABlock`
+## 自由视角
 
-要想在发送的消息使用颜色请使用`&`符号加上颜色字符进行组合
+`LightUtils` 提供观察者模式的自由视角，切换时记录并返回原位置。切换点 200 格范围内无玩家时自动退出。
 
-例如`&a我想把这玩意儿染成绿的`
+适用子服务器：`Lights`
 
-也可以使用`十六进制颜色`,例如`&#FF7F24Doro给你带来了哦润吉`
+- `/freecam` 开启或关闭自由视角
 
-## 我想注销/修改玩家名/让另一个账号登录当前账号
-请联系管理员
+## 变身
 
-## 粘液科技教程?
-引用[粘液科技中文Wiki](https://slimefun-wiki.guizhanss.cn/Home/)
+`FeatherMorph` 提供生物形态变身。
 
-## Residance领地插件？
-不想写了QAQ, To do
-![suzume sticker](../../staticResources/pictures/commandAndFunctions/suzumeIDontWannaWork.webp)
+适用子服务器：`Lights`
+
+- `/morph` 打开形态选择界面
+- `/morph <形态>` 变身为指定形态
+- `/unmorph` 解除变身
+- `/play-action` 播放当前形态的动作，需要客户端 mod 才能看到动画
+
+## 视距
+
+`SeeMore` 按客户端设置动态调整玩家视距，无需手动操作。

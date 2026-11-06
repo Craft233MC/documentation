@@ -1,63 +1,51 @@
-# QuickShop
+---
+order: 8
+---
 
-适用子服务器: `Terra`, `ABlock`
+# 箱子商店
 
-## 查找商店
-列出服务器上所有的箱子商店
+`QuickShop` 提供基于箱子的玩家商店。创建商店后，其他玩家点击箱子即可购买或出售物品。
 
-用法: `/qs browse`
+适用子服务器：`Lights`
 
-按物品名称查找商店
-
-用法: `/qs find <物品名称>`
+交易按成交价的 5% 收取交易税。
 
 ## 创建商店
-使用命令在看着的箱子上创建商店，物品为手持物品
 
-用法: `/qs create <价格>`
+面向箱子，手持要出售的物品执行：
 
-## 修改数量
-使用命令修改看着的箱子上的交易物品数
+```text
+/qs create <价格>
+```
 
-用法: `/qs amount <数量>`
+箱子会登记为商店，物品与数量取自手持物品。
 
-## 修改价格
-使用命令修改看着的商店的交易价格
+## 查找商店
 
-用法: `/qs price <价格>`
+- `/qs browse` 浏览全部商店
+- `/qs find <物品名>` 按物品名搜索商店
 
-## 切换销售模式
-使用命令修改看着的商店的售卖或收购模式
+## 修改商店
 
-用法: 
-- `/qs buy` 切换到收购商店
+面向自己的商店执行：
 
-- `/qs sell` 切换到售卖商店
+- `/qs amount <数量>` 修改单次交易数量
+- `/qs price <价格>` 修改价格
+- `/qs buy` 切换为收购模式
+- `/qs sell` 切换为出售模式
+- `/qs item` 将商店物品替换为手持物品
+- `/qs sign` 切换告示牌样式
+- `/qs toggledisplay` 切换商品展示实体的可见性
 
-## 替换物品
-替换商店物品至手上的物品
+## 转让商店
 
-用法: `/qs item`
+- `/qs setowner <玩家名>` 设置商店所有者
+- `/qs transferownership <玩家名>` 将面向的商店转让给玩家
+- `/qs transferownership accept|deny` 接受或拒绝转让
+- `/qs transferall <玩家名>` 转让自己的全部商店
+- `/qs transferall accept|deny` 接受或拒绝全部转让
 
-## 设置商店权限
-设置商店的所有权或转让
+## 其他
 
-用法:
-- `/qs setowner` 设置商店所有者
-
-- `/qs transferall <玩家名>` 将自己的所有商店转让给某玩家
-
-- `/qs transferall <accept|deny>` 接受或拒绝他人的转让请求
-
-- `qs transerownership <玩家名>` 将正在看着的商店转移给某玩家
-
-- `/qs transferownership <accept|deny>` 接受或拒绝他人的转让请求
-
-## 设置商店
-设置商店的其他设置
-
-用法: 
-- `/qs sign` 切换商店的告示牌样式
-
-- `/qs toggledisplay` 切换正在看着的商店的物品可见性(掉落物)
-
+- `/qs help` 显示指令帮助
+- `/qs staff` 管理指令，需要管理权限

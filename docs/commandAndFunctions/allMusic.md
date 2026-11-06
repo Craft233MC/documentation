@@ -1,156 +1,120 @@
-# AllMusic全局点歌
-一个全局点歌插件，让同一个服务器中所有已安装客户端mod的玩家一起听歌
+---
+order: 13
+---
 
-开源地址: [AllMusic_Server](https://github.com/Coloryr/AllMusic_Server)
+# 全局点歌
 
-在Craft233上使用此功能可以播放VIP歌曲
+`AllMusic` 让同一子服务器内安装了客户端 mod 的玩家共同收听同一首歌。插件运行在 Velocity 代理端，播放列表在子服务器之间同步。
 
-适用子服务器: `Terra`, `ABlock`
-:::info
-此插件仅支持Java版，基岩版无法听到音乐
+开源地址：[AllMusic](https://github.com/Coloryr/AllMusic)
 
-插件不是装在代理端Velocity上的，因此不同子服务器之间的音乐不会同步
+适用子服务器：`Lights`
+
+::: info
+仅 Java 版支持，需要安装客户端 mod。
 :::
 
-## 下载客户端Mod
-Craft233对1.20及以上版本的`Fabric`和`NeoForge`版本已保存在群文件
+## 安装客户端 mod
 
-如果想自己下载请在登陆`GitHub`账号后前往[All_Music构建](https://github.com/Coloryr/AllMusic_Client/actions/)
+从 [AllMusic Releases](https://github.com/Coloryr/AllMusic/releases) 下载与客户端版本、mod 加载器匹配的 `AllMusic_Client` 构建，放入客户端的 `mods` 目录。
 
-找到最新构建，在`Artifacts`部分按照客户端版本及mod加载器选择对应版本下载
+文件按 `加载器-版本.AllMusic_Client-*.jar` 命名，例如 `fabric-26.2.AllMusic_Client-4.3.0.jar`。若无法连接服务器，改用与服务器插件版本一致的构建。
 
-然后将解压后的mod本体放入客户端的`mods`文件夹中
+## 点歌
 
-## 播放歌曲
-分为使用`歌曲ID`和搜索播放
+### 搜索点歌
 
-### 使用搜索播放
-使用搜索播放是最简单的方法
+```text
+/music search <歌名>
+```
 
-只需要`/music search <歌曲名>`即可搜索并播放歌曲
+搜索结果中点击「点我选择」加入播放列表。
 
-如下图所示，搜索完成后点击`点我选择`即可添加到播放列表
+![搜索点歌](../../staticResources/pictures/commandAndFunctions/allMusicSearch.png)
 
-![search](../../staticResources/pictures/commandAndFunctions/allMusicSearch.png)
+### 按歌曲 ID 点歌
 
-### 使用歌曲ID
-首先了解一下什么是`歌曲ID`
+歌曲 ID 是网易云音乐中每首歌的唯一标识，可从分享链接中获取：
 
-歌曲ID是网易云音乐中每首歌独一无二的标签，凭此可以确定具体的一首歌
+```text
+https://music.163.com/#/song?id=1879098277
+```
 
-歌曲ID一般通过网易云音乐分享链接中获取
+其中 `song?id=` 后的 `1879098277` 即歌曲 ID。
 
-以下是网易云音乐中一首歌的分享连接
+```text
+/music 1879098277
+```
 
-`https://music.163.com/#/song?id=1879098277`
+也可以直接粘贴网易云分享链接。
 
-其中`song?id=`后面的`1879098277`就是歌曲ID
+## 界面设置
 
-在服务器中使用如下指令即可通过歌曲ID播放歌曲
+界面默认显示在左上角，由四个模块组成：`info`（歌曲信息）、`list`（播放列表）、`lyric`（歌词）、`pic`（歌曲图片）。
 
-`/music 1879098277`
+### 开关模块
 
-## 设置HUD
-默认情况下HUD显示在游戏内左上角，可以通过以下指令设置HUD的位置或者关闭HUD
+- `/music hud enable` 开关全部界面
+- `/music hud <模块> enable` 开关单个模块
 
-### 开启或关闭HUD
-如下指令用于切换
+示例：`/music hud pic enable`
 
-`/music hud enable`
+![界面设置](../../staticResources/pictures/commandAndFunctions/allMusicHud.png)
 
-其余每个小部分也可单独用于设置开关
+### 设置位置
 
-每个小部分分为`info`， `list`，`lyric`，`pic`
+可用位置：`BOTTOM_CENTER`、`BOTTOM_LEFT`、`BOTTOM_RIGHT`、`CENTER`、`LEFT`、`RIGHT`、`TOP_CENTER`、`TOP_LEFT`、`TOP_RIGHT`。
 
-分别对应`歌曲信息`，`播放别表`，`歌词`，`歌曲图片`
+```text
+/music hud <模块> dir <位置>
+```
 
-通过`/music hud 小部分 enable`切换小部分内容的显示状态
+微调坐标：
 
-比如`/music hud pic enable`用于切换歌曲图片的显示状态
+```text
+/music hud <模块> pos <x> <y>
+```
 
-![search](../../staticResources/pictures/commandAndFunctions/allMusicHud.png)
+### 重置
 
-### 设置HUD位置
-可用的位置有`BOTTOM_CENTER`, `BOTTOM_LEFT`, `BOTTOM_RIGHT`, `CENTER`，`LEFT`，`RIGHT`，`TOP_CENTER`，`TOP_LEFT`，`TOP_RIGHT`
+- `/music hud <模块> reset` 重置单个模块
+- `/music hud reset` 重置全部模块
 
-每个小部分分为`info`， `list`，`lyric`，`pic`
+## 播放控制
 
-这里不对位置意思做介绍，不懂请使用翻译软件翻译
+- `/music stop` 停止播放
+- `/music cancel [序号]` 取消自己已点但未播放的歌曲
+- `/music mute` 不再接收点歌，再次执行恢复
+- `/music vote` 发起切歌投票
+- `/music vote cancel` 取消切歌投票
 
-用法: `/music hud 小部分 dir 位置`
+## 指令一览
 
-例如将图片显示在屏幕左侧则为
-
-`/music hud pic dir LEFT`
-
-如果需要微调，则使用`x`和`y`参数
-
-比如将图片显示在屏幕左侧，并且x轴偏移5个像素，y轴偏移10个像素则为
-
-`/music hud pic pos x y`
-
-如果需要恢复默认，则可以使用
-
-`/music hud reset`全部重置
-
-## 控制音乐播放
-为自己取消当前歌曲播放`/music stop`
-
-取消自己已添加到播放列表但是还未播放的歌曲`/music cancel`
-
-不要听到别人的音乐`/music mute`
-
-...
-
-## 所有指令说明
-:::info
-转载于[AllMusic_Server](https://github.com/Coloryr/AllMusic_Server?tab=readme-ov-file#%E6%8C%87%E4%BB%A4%E8%AF%B4%E6%98%8E)
+::: info
+转载自 [AllMusic_Server](https://github.com/Coloryr/AllMusic_Server?tab=readme-ov-file#%E6%8C%87%E4%BB%A4%E8%AF%B4%E6%98%8E)
 :::
 
-- /music [音乐ID/网易云分享链接] 点歌
-
-- /music stop 停止播放歌曲
-
-- /music list 查看歌曲队列
-
-- /music cancel [序号] 取消你的点歌
-
-- /music vote 投票切歌
-
-- /music vote cancel 取消发起的切歌
-
-- /music push [序号] 投票将歌曲插入到队列头
-
-- /music push cancel 取消发起的插歌
-
-- /music mute 不再参与点歌，再输入一次恢复
-
-- /music mute list 不接收空闲列表点歌，再输入一次恢复
-
-- /music search [歌名] 搜索歌曲
-
-- /music select [序列] 选择歌曲
-
-- /music nextpage 切换下一页歌曲搜索结果
-
-- /music lastpage 切换上一页歌曲搜索结果
-
-- /music hud enable 启用/关闭全部界面
-
-- /music hud reset 重置全部界面
-
-- /music hud [位置] enable 启用关闭单一界面
-
-- /music hud [位置] pos [x] [y] 设置某个界面的位置
-
-- /music hud [位置] dir [对齐方式] 设置某个界面的对齐方式
-
-- /music hud [位置] color [颜色HEX] 设置某个界面的颜色
-
-- /music hud [位置] reset 重置单一界面
-
-- /music hud pic size [尺寸] 设置图片尺寸
-
-- /music hud pic rotate [开关] 设置图片旋转模式
-
-- /music hud pic speed [数值] 设置图片旋转速度
+- `/music [音乐ID/网易云分享链接]` 点歌
+- `/music stop` 停止播放歌曲
+- `/music list` 查看歌曲队列
+- `/music cancel [序号]` 取消自己的点歌
+- `/music vote` 投票切歌
+- `/music vote cancel` 取消发起的切歌
+- `/music push [序号]` 投票将歌曲插入队列头
+- `/music push cancel` 取消发起的插歌
+- `/music mute` 不再参与点歌，再次输入恢复
+- `/music mute list` 不接收空闲列表点歌，再次输入恢复
+- `/music search [歌名]` 搜索歌曲
+- `/music select [序号]` 选择歌曲
+- `/music nextpage` 切换到下一页搜索结果
+- `/music lastpage` 切换到上一页搜索结果
+- `/music hud enable` 启用或关闭全部界面
+- `/music hud reset` 重置全部界面
+- `/music hud [模块] enable` 启用或关闭单个界面
+- `/music hud [模块] pos [x] [y]` 设置界面位置
+- `/music hud [模块] dir [对齐方式]` 设置界面对齐方式
+- `/music hud [模块] color [颜色HEX]` 设置界面颜色
+- `/music hud [模块] reset` 重置单个界面
+- `/music hud pic size [尺寸]` 设置图片尺寸
+- `/music hud pic rotate [开关]` 设置图片旋转模式
+- `/music hud pic speed [数值]` 设置图片旋转速度

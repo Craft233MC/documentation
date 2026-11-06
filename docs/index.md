@@ -1,34 +1,33 @@
+---
+order: 1
+---
+
 # 文档目录📄
-那么，先让我们从头开始，选择需要的部分或快速跳转！
 
-## [进服帮助🌟](readyForJoin)
+按使用阶段选择对应章节。
 
-- [安装游戏🎮](readyForJoin/installGame)
+## [进服帮助🌟](/docs/readyForJoin/)
 
-- [准备账号🌏](readyForJoin/setupAccount)
+- [安装游戏🎮](/docs/readyForJoin/installGame)
+- [准备账号🌏](/docs/readyForJoin/setupAccount)
+- [正式进入🧭](/docs/readyForJoin/joinServer)
 
-- [正式进入🧭](readyForJoin/joinServer)
+## [指令及功能🧩](/docs/commandAndFunctions/)
 
-## [指令及功能🧩](commandAndFunctions)
+- [服务器菜单与切换](/docs/commandAndFunctions/menu)
+- [聊天与消息](/docs/commandAndFunctions/chat)
+- [家与传送](/docs/commandAndFunctions/huskHomes)
+- [领地保护](/docs/commandAndFunctions/residence)
+- [每日任务](/docs/commandAndFunctions/quests)
+- [经济系统](/docs/commandAndFunctions/economy)
+- [每日签到](/docs/commandAndFunctions/signIn)
+- [箱子商店](/docs/commandAndFunctions/quickShop)
+- [议题追踪](/docs/commandAndFunctions/tickets)
+- [杂项功能](/docs/commandAndFunctions/chore)
+- [Light系插件](/docs/commandAndFunctions/lightPlugins)
+- [语音聊天](/docs/commandAndFunctions/voiceChat)
+- [全局点歌](/docs/commandAndFunctions/allMusic)
 
-- [杂项](commandAndFunctions/chore)
+## [常见问题🤔](/docs/FAQ)
 
-- [高级成就](commandAndFunctions/advancedAchievements)
-
-- [基岩版玩家支持](commandAndFunctions/bedrockPlayerSupport)
-
-- [CoreProtect](commandAndFunctions/coreProtect)
-
-- [GSit](commandAndFunctions/gsit)
-
-- [HuskHomes家](commandAndFunctions/huskHomes)
-
-- [QuickShop箱子商店](commandAndFunctions/quickShop)
-
-- [Light系插件](commandAndFunctions/lightPlugins)
-
-- [服务器商店](commandAndFunctions/shop)
-
-- [AllMusic全局点歌](commandAndFunctions/allMusic)
-
-## [常见问题🤔](FAQ)
+连接、登录、皮肤与客户端显示相关问题的解答。

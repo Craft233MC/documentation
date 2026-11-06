@@ -1,0 +1,253 @@
+/* Overrides for VitePress internals. Component styling lives in the templates
+   as Tailwind utilities. */
+
+:root {
+  --nk-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --nk-sidebar-row: 8px;
+}
+
+/* ---------- theme switch ---------- */
+
+/* Colour changes cross-fade even when the system asks for reduced motion: a
+   hue shift is not motion, and snapping white to black is the harsher result.
+   Motion (height, translate) stays gated on the preference elsewhere.
+
+   The canvas is painted from <html>, so it carries the background too: with
+   only <body> painted, some browsers swap the viewport colour at once and the
+   fade is invisible. */
+html {
+  background-color: var(--vp-c-bg);
+}
+
+html,
+body,
+.VPNavBar,
+.VPNavBar .title,
+.VPNavBar .content-body,
+.VPNavBarSearch .DocSearch-Button,
+.VPLocalNav,
+.VPFooter,
+.VPFooter *,
+.VPNavBar *,
+.vp-doc,
+.vp-doc *,
+.vp-doc div[class*='language-'],
+.vp-doc table,
+.vp-doc th,
+.vp-doc td,
+.vp-doc blockquote {
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    color 0.35s ease;
+}
+
+/* The theme hard-disables every transition under `prefers-reduced-motion:
+   reduce` (`transition-duration: 0s !important`), which turns the switch into
+   a white-to-black flash. Keep that reset for motion, but give the colour
+   fade its duration back. */
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body,
+  .VPNavBar,
+  .VPNavBar .title,
+  .VPNavBar .content-body,
+  .VPNavBarSearch .DocSearch-Button,
+  .VPLocalNav,
+  .VPFooter,
+  .VPFooter *,
+  .VPNavBar *,
+  .vp-doc,
+  .vp-doc *,
+  .vp-doc div[class*='language-'],
+  .vp-doc table,
+  .vp-doc th,
+  .vp-doc td,
+  .vp-doc blockquote {
+    transition-duration: 0.35s !important;
+  }
+
+  /* The drawer keeps its colours animated; its motion stays off. */
+  .VPSidebar.VPSidebar,
+  .VPSidebar.VPSidebar.open {
+    transition:
+      background-color 0.35s ease,
+      border-color 0.35s ease,
+      box-shadow 0.35s ease !important;
+  }
+}
+
+/* ---------- navbar ---------- */
+
+/* VitePress lets the sidebar curtain paint the top-left corner on sidebar
+   pages, splitting the navbar into a grey block and a white block. Keep one
+   continuous bar across the page and let the sidebar start below it.
+   !important is needed: the component styles are scoped and load later. */
+@media (min-width: 960px) {
+  .VPNavBar.has-sidebar,
+  .VPNavBar.has-sidebar .title,
+  .VPNavBar.has-sidebar .content-body {
+    background-color: var(--vp-nav-bg-color) !important;
+  }
+
+  .VPNavBar.has-sidebar .divider {
+    padding-left: 0 !important;
+  }
+}
+
+/* ---------- sidebar ---------- */
+
+/* The default theme sets `transition` as a shorthand on the sidebar, which
+   would drop the colour transition above; matching its specificity and
+   declaring after it keeps both. */
+.VPSidebar.VPSidebar {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.5s,
+    transform 0.25s ease;
+}
+
+/* Keep the theme's springy drawer motion; only the colours are added. */
+.VPSidebar.VPSidebar.open {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.25s,
+    transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* ---------- sidebar surfaces ---------- */
+
+/* The rail shares the page colour; a hairline carries the boundary. On mobile
+   the sidebar is a drawer, so it keeps an opaque background, a shadow and a
+   blurred backdrop to sit above the article. */
+:root {
+  --vp-sidebar-bg-color: var(--vp-c-bg);
+}
+
+@media (min-width: 960px) {
+  .VPSidebar {
+    border-right: 1px solid var(--vp-c-divider);
+  }
+}
+
+/* Rows become pills. Negative margins keep the text on the 32px gutter while
+   the hover background bleeds past it. */
+.VPSidebar .VPSidebarItem.level-1 > .item,
+.VPSidebar .VPSidebarItem.level-2 > .item,
+.VPSidebar .VPSidebarItem.level-3 > .item {
+  margin: 1px calc(var(--nk-sidebar-row) * -1);
+  padding: 0 var(--nk-sidebar-row);
+  border-radius: 8px;
+  transition: background-color 0.2s var(--nk-ease);
+}
+
+.VPSidebar .VPSidebarItem.level-1 > .item:hover,
+.VPSidebar .VPSidebarItem.level-2 > .item:hover,
+.VPSidebar .VPSidebarItem.level-3 > .item:hover {
+  background-color: var(--vp-c-default-soft);
+}
+
+.VPSidebar .VPSidebarItem.level-1.is-active > .item,
+.VPSidebar .VPSidebarItem.level-2.is-active > .item,
+.VPSidebar .VPSidebarItem.level-3.is-active > .item {
+  background-color: var(--vp-c-brand-soft);
+}
+
+/* The floating 2px bar does not follow the rounded rows, so the pill carries
+   the active state instead. */
+.VPSidebar .VPSidebarItem .indicator {
+  display: none;
+}
+
+.VPSidebar .VPSidebarItem .caret {
+  border-radius: 6px;
+  transition:
+    background-color 0.2s var(--nk-ease),
+    color 0.2s var(--nk-ease);
+}
+
+.VPSidebar .VPSidebarItem .caret:hover {
+  background-color: var(--vp-c-default-soft);
+}
+
+.VPSidebar .VPSidebarItem .caret-icon {
+  transition: transform 0.25s var(--nk-ease);
+}
+
+/* ---------- outline ---------- */
+
+/* The active marker is positioned by JS, so only its width and colour are
+   touched here. */
+.VPDocAside .VPDocAsideOutline .content {
+  padding-right: 14px;
+  padding-left: 14px;
+  border-left: 1px solid var(--vp-c-divider);
+  font-size: 13px;
+}
+
+.VPDocAside .outline-title {
+  margin-bottom: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.04em;
+  color: var(--vp-c-text-3);
+}
+
+.VPDocAside .VPDocAsideOutline .outline-link {
+  margin: 0 -8px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 28px;
+  font-weight: 400;
+  color: var(--vp-c-text-2);
+  transition:
+    color 0.2s var(--nk-ease),
+    background-color 0.2s var(--nk-ease);
+}
+
+.VPDocAside .VPDocAsideOutline .outline-link:hover {
+  background-color: var(--vp-c-default-soft);
+  color: var(--vp-c-text-1);
+}
+
+.VPDocAside .VPDocAsideOutline .outline-link.active {
+  color: var(--vp-c-brand-1);
+}
+
+.VPDocAside .outline-marker {
+  width: 2px;
+  border-radius: 2px;
+}
+
+/* ---------- doc content ---------- */
+
+.vp-doc div[class*='language-'] {
+  border-radius: 10px;
+}
+
+.vp-doc blockquote {
+  border-left-color: var(--vp-c-brand-soft);
+  border-radius: 0 8px 8px 0;
+}
+
+.vp-doc th {
+  background-color: var(--vp-c-bg-alt);
+}
+
+/* Content links keep the brand colour as the only affordance; the default
+   underline is dropped. */
+.vp-doc a {
+  text-decoration: none;
+}
+
+.vp-doc a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
